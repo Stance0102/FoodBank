@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block title %}現有物資待認領清單{% endblock title %}
+
+{% block content %}
+
+<section id="about" class="about-section text-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 mx-auto">
+              <h2 class="text-white mb-4">您可以在這尋找您所需的物資</h2>
+              <h3 class="text-white-50 mb-3">
+                以機構身分認領受贈物資
+              </h3>
+              <div class="btn-group mb-3">
+                {% if 'role' in session %}
+                    <a class="btn btn-primary font-weight-bold" href="{{ url_for('create_material') }}">
+                        新增物資
+                    </a>
+                    <a class="btn btn-primary font-weight-bold" href="{{ url_for('mechanism_material_list') }}">
+                        切換至 所需物資待認領清單
+                    </a>
+                    <a class="btn btn-success font-weight-bold" href="{{ url_for('my_material_list') }}">
+                        我的物資清單
+                    </a>
+                    <a class="btn btn-success font-weight-bold" href="{{ url_for('my_already_list') }}">
+                        我的已認領清單
+                    </a>
+                {% endif %}
+              </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-title mt-3 mb-1">
+                        <h4 class="font-weight-bold">待認領清單</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>物資名稱</th>
+                                    <th>數量</th>
+                                    <th>建立時間</th>
+                                    <th>立單者</th>
+                                    <th>更單者</th>
+                                    <th>物資狀態</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                        	   {% for material in materials %}
+                                    <tr>
+                                        <td scope="row">{{ loop.index }}</td>
+                                        <td>{{ material['name'] }}</td>
+                                        <td>{{ material['quantity'] }}</td>
+                                        <td>{{ material['create_datetime']|datetime }}</td>
+                                        <td>{{ material['create_user_name'] }}</td>
+                                        <td>{{ material['change_name'] }}</td>
+                                        <td>
+                                    	    <span class="badge badge-primary">
+                                    		{{ material['status'] }}
+                                		    </span>
+                            	        </td>
+                                        {% if session['role'] == 'mechanism' %}
+                                            <td>
+                                                <a class="btn btn-success btn-sm" href="/material_item_check?id={{ material['Id'] }}" >
+                                                    認領
+                                                </a>
+                                            </td>
+                                        {% endif %}
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="static/image/foodbg_01.png" class="img-fluid" alt="">
+    </div>
+</section>
+{% endblock content %}

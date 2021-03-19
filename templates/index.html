@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+{% block title %}FoodBank 食物資源媒合平台{% endblock title %}
+
+{% block content %}
+  <!-- Header -->
+  <header class="masthead" style="background-image: url('static/image/foodbank_02.png');background-position: center;background-attachment: fixed;background-size: 100%">
+    <div class="container d-flex h-100 align-items-center">
+      <div class="mx-auto text-center"><br><br><br><br><br><br><br><br>
+        <a href="#about" class="btn btn-primary js-scroll-trigger">接著看</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="about-section text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2 class="text-white mb-4">我們是致力於將食物資源最佳化的媒合平台</h2>
+          <p class="text-white-50">
+            你可能很常聽到別人說：「非洲的小孩都沒辦法溫飽」，但你知道嗎？<br>
+            其實在台灣，就已經有很多人吃不飽了。<br><br>
+            根據環保署統計，全台灣一年浪費275萬公噸的食物，大家對於這個天文數字可能沒有什麼概念。<br>
+            根據另一項衛生福利部2015年度統計，台灣820萬戶中有26萬戶屬於中低收入或低收入戶。<br>
+            也就是每100戶之中，有3戶屬於中低收入或低收入戶。<br>
+            而台灣一年浪費的食物可以讓這些人吃20年之久。
+          </p>
+          <h3 class="text-white-50 mb-3">
+            希望你們和我們一起努力，讓世界的美好多一點。
+          </h3>
+        </div>
+      </div>
+      <img src="static/image/foodbg_01.png" class="img-fluid" alt="">
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects-section bg-light">
+    <div class="container">
+
+      <!-- Featured Project Row -->
+      <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+        <div class="col-xl-8 col-lg-7">
+          <img class="img-fluid mb-3 mb-lg-0" src="static/image/foodbank_01.jpg" alt="">
+        </div>
+        <div class="col-xl-4 col-lg-5">
+          <div class="featured-text text-center text-lg-left">
+            <h4>食物銀行Online to Offline</h4>
+            <p class="text-black-50 mb-0">
+              我們將食物銀行整合到線上平台，由線上登記食物資源、認領物資或開設待認領清單，再由線下物流將食物資源送達到該機構。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project One Row -->
+      <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+        <div class="col-lg-6">
+          <img class="img-fluid" src="static/image/food_02.png" alt="">
+        </div>
+        <div class="col-lg-6">
+          <div class="bg-black text-center h-100 project">
+            <div class="d-flex h-100">
+              <div class="project-text w-100 my-auto text-center text-lg-left">
+                <h4 class="text-white">食物資源媒合行動化</h4>
+                <p class="mb-0 text-white-50">
+                  我們在網站的UI/UX設計下了些功夫，讓使用者可以在各地，甚至是各種尺寸的裝置都能不受阻饒的將食物資源做媒合。
+                </p>
+                <hr class="d-none d-lg-block mb-0 ml-0">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Two Row -->
+      <div class="row justify-content-center no-gutters">
+        <div class="col-lg-6">
+          <img class="img-fluid" src="static/image/food_01.png" alt="">
+        </div>
+        <div class="col-lg-6 order-lg-first">
+          <div class="bg-black text-center h-100 project">
+            <div class="d-flex h-100">
+              <div class="project-text w-100 my-auto text-center text-lg-right">
+                <h4 class="text-white">將引入Google Map地點資訊</h4>
+                <p class="mb-0 text-white-50">
+                  我們期望將Google Map地點資訊，引入此平台系統，以增加此平台公信力。
+                </p>
+                <hr class="d-none d-lg-block mb-0 mr-0">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Signup Section -->
+  <section id="signup" class="signup-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-lg-8 mx-auto text-center">
+
+          <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
+          <h2 class="text-white mb-5">註冊或登入以貢獻食物資源或取得食物資源</h2>
+          <div class="btn-group">
+            <a href="{{ url_for('signin') }}" class="btn btn-primary font-weight-bold">註冊</a>
+            <a href="{{ url_for('login') }}" class="btn btn-success font-weight-bold">登入</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section bg-black">
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-md-4 mb-3 mb-md-0">
+          <div class="card py-4 h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+              <h4 class="text-uppercase m-0">地點</h4>
+              <hr class="my-4">
+              <div class="small text-black-50">國立高雄科技大學 東校區 財金學院215</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-3 mb-md-0">
+          <div class="card py-4 h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-envelope text-primary mb-2"></i>
+              <h4 class="text-uppercase m-0">聯絡我們</h4>
+              <hr class="my-4">
+              <div class="small text-black-50">
+                <a href="http://kmslab.mis.nkfust.edu.tw">關於團隊</a><br>
+                <a href="mailto:c107118102@nkust.edu.tw?Subject=關於FoodBank事宜">寄信給工程師</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-3 mb-md-0">
+          <div class="card py-4 h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-mobile-alt text-primary mb-2"></i>
+              <h4 class="text-uppercase m-0">電話</h4>
+              <hr class="my-4">
+              <div class="small text-black-50">+886 925420706</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="social d-flex justify-content-center">
+        <a href="#" class="mx-2">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="mx-2">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="mx-2">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+{% endblock content %}

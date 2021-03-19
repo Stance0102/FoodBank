@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}登入 會員/機構{% endblock title %}
+
+{% block content %}
+<section id="about" class="about-section text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2 class="text-white mb-4">我們是致力於將食物資源最佳化的媒合平台</h2>
+          <p class="text-white-50">
+            你可能很常聽到別人說：「非洲的小孩都沒辦法溫飽」，但你知道嗎？<br>
+            其實在台灣，就已經有很多人吃不飽了。<br><br>
+            根據環保署統計，全台灣一年浪費275萬公噸的食物，大家對於這個天文數字可能沒有什麼概念。<br>
+            根據另一項衛生福利部2015年度統計，台灣820萬戶中有26萬戶屬於中低收入或低收入戶。<br>
+            也就是每100戶之中，有3戶屬於中低收入或低收入戶。<br>
+            而台灣一年浪費的食物可以讓這些人吃20年之久。
+          </p>
+          <h3 class="text-white-50 mb-3">
+            希望你們和我們一起努力，讓世界的美好多一點。
+          </h3>
+        </div>
+      </div>
+      {% from '_formhelper.html' import render_field %}
+      <form class="form-signin" action="{{ url_for('login') }}" method="post">
+        <h1 class="h3 mb-3 font-weight-normal text-light">登入以開始行動</h1>
+        <br>
+
+        {% if error %}
+        <div class="alert alert-danger">
+          {{ error }}
+        </div>
+        {% endif %}
+
+        {{ form.csrf_token }}
+        
+        <div class="form-row">
+          <div class="form-group col">
+            {{ render_field(form.name,class="form-control",placeholder="輸入帳號") }}
+          </div>
+          <div class="form-group col">
+            {{ render_field(form.password,class="form-control",placeholder="輸入密碼") }}
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col">
+            {{ render_field(form.role,class="form-control",placeholder="請選擇身分別") }}
+          </div>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block font-weight-bold" type="submit">登入</button>
+      </form>
+    </div>
+    <br><br>
+  </section>
+{% endblock content %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}登錄您的食物資源{% endblock title %}
+
+{% block content %}
+<section id="about" class="about-section text-center">
+	<div class="container">
+	  <div class="row">
+	    <div class="col-lg-8 mx-auto">
+	      <h2 class="text-white mb-4">登錄且提供食物資源，幫助有需要的人</h2>
+	    </div>
+	  </div>
+
+	  {% from "_formhelper.html" import render_field %}
+	  <form class="form-signin" action="{{ url_for('create_material') }}" method="post">
+	    <h1 class="h3 mb-3 font-weight-normal text-light">謝謝您的愛心，我們會持續與您保持聯繫！</h1>
+	    <br>
+		
+		{% if error %}
+        <div class="alert alert-danger">
+          {{ error }}
+        </div>
+        {% endif %}
+
+	    {{ form.csrf_token }}
+
+	    <div class="form-row">
+	      <div class="form-group col">
+	        {{ render_field(form.name, class="form-control",placeholder="輸入名稱") }}
+	      </div>
+	      <div class="form-group col">
+	        {{ render_field(form.quantity, class="form-control",placeholder="輸入數量") }}
+	      </div>
+	    </div>
+
+	    <button class="btn btn-lg btn-primary btn-block font-weight-bold" type="submit">送出</button>
+	  </form>
+	</div>
+	<br><br>
+</section>
+{% endblock content %} 
